@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirect to App</title>
+
+  <!-- Placeholder favicon; will be replaced by JS -->
+  <link id="favicon" rel="icon" href="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Open link in App?</h1>
+      <p>Click the button below to open the app or continue to the store.</p>
+      <button id="openAppBtn" class="open-btn">Open</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="utils.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.ENV && window.ENV.CLOUDFRONT_URL) {
+        document.getElementById("favicon").href =
+          `${window.ENV.CLOUDFRONT_URL}/common_assets/icons/favicon.ico`;
+      }
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

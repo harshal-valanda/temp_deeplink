@@ -1,0 +1,31 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Replace placeholders in config.js with environment variables using Node.js script
+        - node replace-config.js
+        # Alternative: Using sed (uncomment if you prefer sed over Node.js)
+        # - |
+        #   sed -i.bak \
+        #     -e "s|{ CLOUDFRONT_URL }|'${CLOUDFRONT_URL}'|g" \
+        #     -e "s|{ ANDROID_SCHEME }|'${ANDROID_SCHEME}'|g" \
+        #     -e "s|{ ANDROID_PACKAGE_NAME }|'${ANDROID_PACKAGE_NAME}'|g" \
+        #     -e "s|{ ANDROID_PLAY_STORE_URL }|'${ANDROID_PLAY_STORE_URL}'|g" \
+        #     -e "s|{ IOS_SCHEME }|'${IOS_SCHEME}'|g" \
+        #     -e "s|{ IOS_APP_STORE_URL }|'${IOS_APP_STORE_URL}'|g" \
+        #     -e "s|{ WEB_REDIRECT_URL }|'${WEB_REDIRECT_URL}'|g" \
+        #     config.js
+        # - rm -f config.js.bak
+    build:
+      commands:
+        # Add any build commands here if needed
+        - echo "Build completed"
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+
