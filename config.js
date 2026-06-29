@@ -14,7 +14,7 @@ window.ENV = {
   },
 
   WEB_CONFIG: {
-    REDIRECT_URL: 'https://dev.d3swcvd4wd9xrg.amplifyapp.com/',
+    REDIRECT_URL: 'https://main.d2ossdudba90a0.amplifyapp.com/',
   },
 };
 
