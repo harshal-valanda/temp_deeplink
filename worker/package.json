@@ -1,0 +1,18 @@
+{
+  "name": "bet-preview-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker that injects per-bet Open Graph tags and renders dynamic preview images for shared bet links.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "workers-og": "^0.0.27"
+  },
+  "devDependencies": {
+    "wrangler": "^4.105.0"
+  }
+}

@@ -1,0 +1,30 @@
+name = "bet-preview-worker"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+# API_BASE   -> resolves to BetsV1; batch-retrieve is `${API_BASE}/batch-retrieve`.
+# ORIGIN_URL -> the existing static deep-link site whose HTML we rewrite.
+#               The Worker fetches this, swaps the og:* tags, and returns it.
+#               Real (non-crawler) users still receive config.js/script.js and
+#               get the normal deep-link redirect behaviour.
+[vars]
+API_BASE = "https://d2cd6j9obaa1qj.cloudfront.net/bets/v1"
+ORIGIN_URL = "https://dev.d3swcvd4wd9xrg.amplifyapp.com"
+SITE_NAME = "Rebet"
+# Fallback image used when a bet can't be resolved.
+FALLBACK_IMAGE = "https://dbuhveqapzlhb.cloudfront.net/common_assets/icons/og-image.png"
+
+# ---------------------------------------------------------------------------
+# Routing
+# ---------------------------------------------------------------------------
+# To put the Worker in front of your shared-link domain, add a route, e.g.:
+#
+# [[routes]]
+# pattern = "share.rebet.app/*"
+# zone_name = "rebet.app"
+#
+# Or just deploy to <name>.<account>.workers.dev and share that URL.
