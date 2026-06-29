@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: temp-deeplink
+    runtime: node
+    buildCommand: npm install && node replace-config.js
+    startCommand: npm start
+    envVars:
+      - key: API_BASE
+        value: https://d2cd6j9obaa1qj.cloudfront.net/bets/v1
+      - key: SITE_NAME
+        value: Rebet
+      - key: FALLBACK_IMAGE
+        value: https://dbuhveqapzlhb.cloudfront.net/common_assets/icons/og-image.png
+      - key: USE_DEFAULT_BET
+        value: "true"
