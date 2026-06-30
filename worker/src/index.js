@@ -38,17 +38,9 @@ function buildOgImageUrl(reqUrl, betId, betType) {
   return u.toString();
 }
 
-async function handleOgImage(url, env) {
-  const betId = url.searchParams.get('post');
-  const betType = url.searchParams.get('post_type');
-
-  const bet = await fetchBet(env, betId, betType);
-  if (!bet) {
-    return Response.redirect(env.FALLBACK_IMAGE, 302);
-  }
-
-  const preview = buildPreview(bet, env);
-  const res = ogImageResponse(preview);
+async function handleOgImage(_url, _env) {
+  // For now, render only the static gradient background (no bet fetch).
+  const res = ogImageResponse();
   // Cache generated images aggressively; bet outcomes rarely change post-share.
   res.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
   return res;
