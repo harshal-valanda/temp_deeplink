@@ -33,8 +33,8 @@ const indexTemplate = readFileSync(join(__dirname, 'index.html'), 'utf8');
 async function resolveBet(betId, betType) {
   const bet = await fetchBet(config, betId, betType);
   if (bet) return bet;
-  if (USE_DEFAULT_BET) {
-    console.warn(`batch-retrieve failed for post=${betId}; using DEFAULT_BET`);
+ if (USE_DEFAULT_BET) {
+    console.warn(`batch-retr ieve failed for post=${betId}; using DEFAULT_BET`);
     return DEFAULT_BET;
   }
   return null;

@@ -83,7 +83,7 @@ async function handlePage(request, url, env) {
     .on('meta[property="og:x"]', new AttrSetter(pageUrl))
     .on('meta[property="og:image"]', new AttrSetter(imageUrl))
     .on('meta[property="og:image:width"]', new AttrSetter('1200'))
-    .on('meta[property="og:image:height"]', new AttrSetter('630'))
+    .on('meta[property="og:image:height"]', new AttrSetter('800'))
     .on('meta[name="twitter:card"]', new AttrSetter('summary_large_image'))
     .on('meta[name="twitter:title"]', new AttrSetter(title))
     .on('meta[name="twitter:description"]', new AttrSetter(description))
